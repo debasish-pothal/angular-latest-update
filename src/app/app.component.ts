@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { COURSES } from "../db-data";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-  title = 'angular-latest-update';
+  courses = COURSES;
+
+  handleCourseCardClick(course) {
+    console.log("inside app component");
+    console.log(course);
+  }
 }
