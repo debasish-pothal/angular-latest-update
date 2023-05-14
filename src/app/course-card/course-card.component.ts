@@ -5,6 +5,7 @@ import {
   EventEmitter,
   Input,
   Output,
+  TemplateRef,
 } from "@angular/core";
 import { Course } from "../model/course";
 
@@ -15,6 +16,8 @@ import { Course } from "../model/course";
 })
 export class CourseCardComponent implements AfterViewInit {
   @Input() course: Course;
+
+  @Input() noImgTempl: TemplateRef<any>;
 
   @Output() onCourseClick = new EventEmitter<Course>();
 

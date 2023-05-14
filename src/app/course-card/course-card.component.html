@@ -12,5 +12,9 @@
     <div class="category" *ngSwitchDefault>All</div>
   </div>
 
+  <ng-container
+    *ngTemplateOutlet="noImgTempl; context: { description: course.description }"
+  ></ng-container>
+
   <button (click)="viewCourse()">View Course</button>
 </div>
