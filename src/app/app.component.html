@@ -6,5 +6,14 @@
 </div>
 
 <div class="courses">
-  <course-card *ngFor="let course of courses;index as i;" [course]="course" (onCourseClick)="handleCourseCardClick($event)"></course-card>
+  <course-card
+    #course1
+    [course]="courses[0]"
+    (onCourseClick)="handleCourseCardClick($event)"
+  >
+    <p #myPar>This is Course 1</p>
+  </course-card>
+  <!-- <course-card #course2 [course]="courses[1]" (onCourseClick)="handleCourseCardClick($event)">
+    <h2>This is Course 2 H2</h2>
+  </course-card> -->
 </div>
