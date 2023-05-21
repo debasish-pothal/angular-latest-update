@@ -1,25 +1,19 @@
-import { Component, ViewChild } from "@angular/core";
-import { COURSES } from "../db-data";
-import { CourseCardComponent } from "./course-card/course-card.component";
+import { Component, OnInit } from "@angular/core";
+import { CoursesService } from "./services/courses.service";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
 })
-export class AppComponent {
-  courses = COURSES;
+export class AppComponent implements OnInit {
+  courses = [];
 
-  @ViewChild("course1")
-  card1: CourseCardComponent;
+  constructor(private coursesService: CoursesService) {}
 
-  @ViewChild("course2")
-  card2: CourseCardComponent;
-
-  handleCourseCardClick(course) {
-    console.log("inside app component");
-    console.log(this.card1);
-    console.log(this.card2);
-    console.log(course);
+  ngOnInit(): void {
+    this.coursesService
+      .loadCourses()
+      .subscribe((res) => (this.courses = res["payload"]));
   }
 }

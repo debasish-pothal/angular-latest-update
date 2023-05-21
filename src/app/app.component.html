@@ -10,21 +10,5 @@
 </div>
 
 <div class="courses">
-  <ng-template #blankImage let-courseName="description">
-    <p class="warn">{{ courseName }} has no image</p>
-  </ng-template>
-
-  <course-card
-    highlighted
-    #course1="hl"
-    [course]="courses[0]"
-    [noImgTempl]="blankImage"
-    (onCourseClick)="handleCourseCardClick($event)"
-  >
-    <p #myPar>This is Course 1</p>
-    <button (click)="course1.toggle()">Toggle Highlight</button>
-  </course-card>
-  <!-- <course-card #course2 [course]="courses[1]" (onCourseClick)="handleCourseCardClick($event)">
-    <h2>This is Course 2 H2</h2>
-  </course-card> -->
+  <course-card *ngFor="let course of courses" [course]="course"></course-card>
 </div>
